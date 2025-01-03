@@ -1,9 +1,12 @@
+use candy::candy_distribution;
+
 // mod merge;
 // mod remove_x;
 // mod remove_dups;
 // mod majority;
 mod best_time;
 // mod jump_game;
+mod candy;
 fn main() {
     println!("Hello, world!");
 
@@ -28,16 +31,24 @@ fn main() {
     //     Err(e) => println!("NA"),
     // }
 
-    let a = vec![14, 8, 3, 4, 4, 6, 14, 2, 13, 10];
-    let max_profit = best_time::max_profit(&a);
+    // let a = vec![14, 8, 3, 4, 4, 6, 14, 2, 13, 10];
+    // let max_profit = best_time::max_profit(&a);
 
-    match max_profit {
-        Ok(vals) => println!("Buy Price: {}, Sell Price: {}, Max Profit: {}", a[vals.0], &a[vals.1], vals.2),
-        Err(_) => println!("{}", "No Profit"),
-    }
+    // match max_profit {
+    //     Ok(vals) => println!("Buy Price: {}, Sell Price: {}, Max Profit: {}", a[vals.0], &a[vals.1], vals.2),
+    //     Err(_) => println!("{}", "No Profit"),
+    // }
 
     // let a = vec![3,2,1,0,4];
     // let val = jump_game::can_reach(a);
     // println!("{}", val);
+
+    let children = vec![1, 0, 2];
+    let total_distribution = candy_distribution(children);
+
+    match total_distribution {
+        Ok(distro) => println!("Total: {}, Distro: {:?}", distro.0, distro.1),
+        _ => println!("Something went wrong")
+    }
 
 }
