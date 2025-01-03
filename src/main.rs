@@ -1,12 +1,14 @@
-use candy::candy_distribution;
+// use candy::candy_distribution;
+use rain_water::max_rainwater;
 
 // mod merge;
 // mod remove_x;
 // mod remove_dups;
 // mod majority;
-mod best_time;
+// mod best_time;
 // mod jump_game;
-mod candy;
+// mod candy;
+mod rain_water;
 fn main() {
     println!("Hello, world!");
 
@@ -43,11 +45,19 @@ fn main() {
     // let val = jump_game::can_reach(a);
     // println!("{}", val);
 
-    let children = vec![1, 0, 2];
-    let total_distribution = candy_distribution(children);
+    // let children = vec![1, 0, 2];
+    // let total_distribution = candy_distribution(children);
 
-    match total_distribution {
-        Ok(distro) => println!("Total: {}, Distro: {:?}", distro.0, distro.1),
+    // match total_distribution {
+    //     Ok(distro) => println!("Total: {}, Distro: {:?}", distro.0, distro.1),
+    //     _ => println!("Something went wrong")
+    // }
+
+    let wall_sizes = vec![0,1,0,2,1,0,1,3,2,1,2,1];
+    let rain_water_collected = max_rainwater(wall_sizes);
+
+    match rain_water_collected {
+        Ok(amount) => println!("Total Rain: {}", amount),
         _ => println!("Something went wrong")
     }
 
