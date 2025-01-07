@@ -38,3 +38,36 @@ pub fn max_rainwater(elevation: Vec<i32>) -> Result<i32, ElevationError> {
 
     Ok(total_rain_water)
 }
+
+
+pub fn max_rainwater_optimized(elevation: Vec<i32>) -> Result<i32, ElevationError> {
+    if elevation.is_empty() || elevation.len() < 3 {
+        return Err(ElevationError::NotEnoughWalls);
+    }
+
+    let mut left = 0;
+    let mut right = elevation.len() - 1;
+    let mut left_max = 0;
+    let mut right_max = 0;
+    let mut total_rain_water = 0;
+
+    while left < right {
+        if elevation[left] < elevation[right] {
+            if elevation[left] >= left_max {
+                left_max = elevation[left];
+            } else {
+                total_rain_water += left_max - elevation[left];
+            }
+            left += 1;
+        } else {
+            if elevation[right] >= right_max {
+                right_max = elevation[right];
+            } else {
+                total_rain_water += right_max - elevation[right];
+            }
+            right -= 1;
+        }
+    }
+
+    Ok(total_rain_water)
+}
