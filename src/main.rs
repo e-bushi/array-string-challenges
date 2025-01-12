@@ -1,6 +1,4 @@
 // use candy::candy_distribution;
-use rain_water::max_rainwater;
-
 // mod merge;
 // mod remove_x;
 // mod remove_dups;
@@ -8,7 +6,8 @@ use rain_water::max_rainwater;
 // mod best_time;
 // mod jump_game;
 // mod candy;
-mod rain_water;
+// mod rain_water;
+mod alt_merge;
 fn main() {
     println!("Hello, world!");
 
@@ -53,12 +52,20 @@ fn main() {
     //     _ => println!("Something went wrong")
     // }
 
-    let wall_sizes = vec![0,1,0,2,1,0,1,3,2,1,2,1];
-    let rain_water_collected = max_rainwater(wall_sizes);
+    // let wall_sizes = vec![0,1,0,2,1,0,1,3,2,1,2,1];
+    // let rain_water_collected = max_rainwater(wall_sizes);
 
-    match rain_water_collected {
-        Ok(amount) => println!("Total Rain: {}", amount),
-        _ => println!("Something went wrong")
+    // match rain_water_collected {
+    //     Ok(amount) => println!("Total Rain: {}", amount),
+    //     _ => println!("Something went wrong")
+    // }
+
+    let word1 = "abc".to_string();
+    let word2 = "pqr".to_string();
+    let merged = alt_merge::merge_strings(word1, word2);
+    match merged {
+        Ok(merged_str) => println!("{}", merged_str),
+        Err(_) => println!("There was an Error Merging"),
     }
 
 }
