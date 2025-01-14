@@ -7,7 +7,8 @@
 // mod jump_game;
 // mod candy;
 // mod rain_water;
-mod alt_merge;
+// mod alt_merge;
+mod string_divisor;
 fn main() {
     println!("Hello, world!");
 
@@ -60,11 +61,19 @@ fn main() {
     //     _ => println!("Something went wrong")
     // }
 
-    let word1 = "abc".to_string();
-    let word2 = "pqr".to_string();
-    let merged = alt_merge::merge_strings(word1, word2);
-    match merged {
-        Ok(merged_str) => println!("{}", merged_str),
+    // let word1 = "abc".to_string();
+    // let word2 = "pqr".to_string();
+    // let merged = alt_merge::merge_strings(word1, word2);
+    // match merged {
+    //     Ok(merged_str) => println!("{}", merged_str),
+    //     Err(_) => println!("There was an Error Merging"),
+    // }
+
+    let word1 = "abcabcabcabc".to_string();
+    let word2 = "abc".to_string();
+    let divisor = string_divisor::string_divisor(word1, word2);
+    match divisor {
+        Ok(divisor) => println!("Here is the divisor: {}", divisor),
         Err(_) => println!("There was an Error Merging"),
     }
 
